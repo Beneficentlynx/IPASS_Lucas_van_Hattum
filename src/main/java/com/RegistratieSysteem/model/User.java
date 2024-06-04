@@ -12,6 +12,7 @@ public class User implements Principal, Serializable {
     private String diploma;
     private static ArrayList<User> AllUsers = new ArrayList<>();
     private int usernummer;
+    private static int usercounter;
 
     public User(String name, String password, String diploma) {
         this.name = name;
