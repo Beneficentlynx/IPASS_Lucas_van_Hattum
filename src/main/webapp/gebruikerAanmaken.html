@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <base href="./" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZSN medewerkers registratie systeem</title>
+    <!--    <script type="module" crossorigin src="./assets/main-CUSLe1T3.js"></script>-->
+    <link rel="stylesheet"  href="./css/style.css">
+</head>
+<body>
+<ul class="">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="zomerweken.html">Zomerweken</a></li>
+    <li><a href="zomerweekAanmaken.html">Zomerweek aanmaken</a></li>
+    <li class="active" ><a href="gebruikerAanmaken.html">Gebruiker aanmaken</a></li>
+    <li id="logout"><a  href="login.html">Log uit</a></li>
+</ul>
+<br>
+<h1>Gebruiker aanmaken</h1>
+
+<form id="register">
+    <div class="field">
+        <label>
+            <p class="subtitle">Username</p>
+            <input id="registerUsername" type="text" class="input" placeholder="Username" required>
+        </label>
+    </div>
+    <br>
+    <div class="field">
+        <label>
+            <p class="subtitle">Password</p>
+            <input id="registerPassword" type="text" class="input" placeholder="Password" required>
+        </label>
+    </div>
+    <div class="field">
+        <label>
+            <p class="subtitle">Diploma</p>
+            <select id="registerDiploma" id="diploma">
+                <option value="I2">I2</option>
+                <option value="I2+">I2+</option>
+                <option value="I3">I3</option>
+                <option value="I4">I4</option>
+                <option value="I4*">I4+</option>
+                <option value="O">O</option>
+
+            </select>
+        </label>
+    </div>
+    <hr>
+    <div class="field">
+        <button type="createUser" class="button">Submit</button>
+    </div>
+</form>
+</body>
+<!--<script type="application/javascript" src="js/functions.js"></script>-->
+<script type="module" src="js/login.js"></script>
+</html>
