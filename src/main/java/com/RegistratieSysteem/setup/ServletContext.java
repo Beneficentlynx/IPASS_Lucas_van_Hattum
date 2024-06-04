@@ -16,7 +16,9 @@ public class ServletContext implements ServletContextListener, HttpSessionListen
     @Override
     public void contextInitialized(ServletContextEvent sce){
         User.setAllUsers(User.readUser());
-
+//        User adminuser = new User("admin", "admin", "TEST");
+//        User.addUserToAll(adminuser);
+        System.out.println(User.getAllUsers());
     }
 
     @Override

@@ -23,18 +23,38 @@ public class Accountmanagment {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createNewAccount(RegistrationRequest registrationRequest){
-        ArrayList<String> userExists = new ArrayList<>();
+    public Response createNewAccount(@Context SecurityContext sc, RegistrationRequest registrationRequest){
+        Map<String, String> data = new HashMap<>();
+        if (sc.getUserPrincipal() != null) {
+            if (sc.getUserPrincipal() instanceof User) {
+                User current1 = (User) sc.getUserPrincipal();
+                System.out.println(current1.getName());
+                if (current1.getName().equals("admin")){
+                    ArrayList<String> userExists = new ArrayList<>();
 
-        User current = new User(registrationRequest.username, registrationRequest.password, registrationRequest.diploma);
-        User existing = User.getUserByName(current.getName());
+                    User current = new User(registrationRequest.username, registrationRequest.password, registrationRequest.diploma);
+                    User existing = User.getUserByName(current.getName());
 
-        if (User.getAllUsers().contains(current) || existing != null) {
-            return Response.status(Response.Status.CONFLICT).build();
+                    if (User.getAllUsers().contains(current) || existing != null) {
+                        return Response.status(Response.Status.CONFLICT).build();
+                    }
+
+                    User.addUserToAll(current);
+                    System.out.println(User.getAllUsers());
+                    return Response.ok().build();
+                }
+                return Response.status(Response.Status.UNAUTHORIZED).build();
+            }
+            return Response.status(Response.Status.UNAUTHORIZED).build();
         }
-
-        User.addUserToAll(current);
-        System.out.println(User.getAllUsers());
-        return Response.ok().build();
+        return Response.status(Response.Status.UNAUTHORIZED).build();
     }
+
 }
+
+
+
+
+
+
+

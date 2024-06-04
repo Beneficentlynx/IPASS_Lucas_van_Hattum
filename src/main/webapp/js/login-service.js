@@ -68,6 +68,29 @@ export default class LoginService {
             }).catch(error => console.log(error));
     }
 
+
+    /**
+     * @returns {Promise<Array>}
+     */
+    getAllUsernames() {
+        const LOCAL_TOKEN = window.sessionStorage.getItem("myJWT");
+        const URL = "http://localhost:8080/restservices/authorization/getallusers";
+
+        let fetchOptions = {
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + LOCAL_TOKEN
+            }
+        }
+        return fetch(URL, fetchOptions)
+            .then(response => {
+                console.log(response)
+                if (response.ok) {
+                    return response.json();
+                } else throw `(${response.status}) Could not get all usernames`
+            }).catch(error => console.log(error));
+    }
+
     /**
      * Log user out
      * @returns {Promise<void>}

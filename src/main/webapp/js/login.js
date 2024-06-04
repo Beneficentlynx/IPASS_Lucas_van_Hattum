@@ -37,6 +37,29 @@ function getUsername() {
     handleFetchResult();
 }
 
+function placeAllUsernames() {
+    const fetchAllUsernames = service.getAllUsernames().then(response => {
+        console.log(response.allUserNames)
+        return response.allUserNames;
+    });
+
+    const handleFetchResult = () => {
+        fetchAllUsernames.then((a) => {
+            let list = document.getElementById("userlist")
+            document.getElementById("userlist").innerHTML = "";
+            console.log(a)
+            a.forEach((item) => {
+                let li =
+                    document.createElement("li");
+                li.innerText = item;
+                list.appendChild(li);
+            });
+        });
+    };
+
+    handleFetchResult();
+}
+
 /**
  * Check if user is logged in
  * @returns {void}
@@ -61,10 +84,10 @@ function refresh() {
     if (service.isLoggedIn()) {
         getUsername();
         RemoveAdminPages();
-
-        } else {
-            if (document.URL.includes("login.html") ){
+        placeAllUsernames();
         }
+    else {
+        if (document.URL.includes("login.html") ){}
         else    {window.location.replace("login.html");}
 
     }
@@ -74,11 +97,10 @@ function refresh() {
  * @returns {Promise<void>}
  */
 function registerNewAccount() {
-    console.log("register is started")
+    const LOCAL_TOKEN = window.sessionStorage.getItem("myJWT");
     const USERNAME = document.getElementById("registerUsername");
     const DIPLOMA = document.getElementById("registerDiploma");
     const PASSWORD = document.getElementById("registerPassword");
-    console.log(DIPLOMA.options[DIPLOMA.selectedIndex].text)
     let jsonRequestBody = {
         "username": USERNAME.value,
         "diploma": DIPLOMA.options[DIPLOMA.selectedIndex].text,
@@ -88,7 +110,7 @@ function registerNewAccount() {
     let fetchOptions = {
         method: "POST",
         body: JSON.stringify(jsonRequestBody),
-        headers: {'Content-Type': 'application/json'}
+        headers: {'Content-Type': 'application/json','Authorization': 'Bearer ' + LOCAL_TOKEN}
     }
 
     fetch('restservices/account/create', fetchOptions)
@@ -96,10 +118,10 @@ function registerNewAccount() {
             if (!response.ok) {
                 throw new Error(response.status);
             }
-            console.log(response.status)
             USERNAME.value = ""
             PASSWORD.value = ""
             DIPLOMA.value = "I2"
+            refresh()
         })
         .catch((error) => {
             const STATUS_ALREADY_EXISTS = 409;

@@ -1,4 +1,4 @@
-ul {
+.navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -7,10 +7,11 @@ ul {
 }
 
 li {
-    float: left;
+
 }
 
 li a {
+    float: left;
     display: block;
     color: white;
     text-align: center;
@@ -32,15 +33,10 @@ li a:hover {
 
 }
 
-.adminAcces1 {
-    visibility: hidden;
+.userList{
+    float : right;
 }
-.adminAcces2 {
-    visibility: hidden;
-}
-.adminAcces3 {
-    visibility: hidden;
-}
-.adminAcces4 {
-    visibility: hidden;
+
+section {
+    width : 600px;
 }
