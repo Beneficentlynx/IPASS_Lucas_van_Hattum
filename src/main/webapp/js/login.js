@@ -37,23 +37,25 @@ function getUsername() {
     handleFetchResult();
 }
 
+
+
 function placeAllUsernames() {
     const fetchAllUsernames = service.getAllUsernames().then(response => {
-        console.log(response.allUserNames)
         return response.allUserNames;
     });
 
     const handleFetchResult = () => {
         fetchAllUsernames.then((a) => {
-            let list = document.getElementById("userlist")
-            document.getElementById("userlist").innerHTML = "";
-            console.log(a)
-            a.forEach((item) => {
-                let li =
-                    document.createElement("li");
-                li.innerText = item;
-                list.appendChild(li);
-            });
+            if(window.location.pathname === "/gebruikerAanmaken.html") {
+                let list = document.getElementById("userlist")
+                document.getElementById("userlist").innerHTML = "";
+                a.forEach((item) => {
+                    let li =
+                        document.createElement("li");
+                    li.innerText = item;
+                    list.appendChild(li);
+                });
+            }
         });
     };
 
@@ -66,13 +68,10 @@ function placeAllUsernames() {
  */
 function RemoveAdminPages() {
     service.getUser().then(response => {
-        if(USERNAME !== "admin"){
+        if(response.username !== "admin"){
             if (document.URL.includes("zomerweekAanmaken.html") || document.URL.includes("gebruikerAanmaken.html")){
                 window.location.replace("index.html");
             }
-        }
-        else{
-
         }
     });
 }

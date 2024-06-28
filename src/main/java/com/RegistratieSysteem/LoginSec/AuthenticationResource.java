@@ -1,6 +1,6 @@
 package com.RegistratieSysteem.LoginSec;
 
-import com.RegistratieSysteem.model.LoginRequest;
+import com.RegistratieSysteem.webservices.dto.LoginRequest;
 import com.RegistratieSysteem.model.User;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -26,10 +26,8 @@ public class AuthenticationResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response authenticateUser(LoginRequest LoginRequest) {
-        System.out.println(User.getAllUsers());
         try {
             Boolean correctDetails = User.checkLogin(LoginRequest.username, LoginRequest.password);
-            System.out.println(correctDetails);
             if (!correctDetails) {
                 throw new IllegalArgumentException(("No user found"));
             }

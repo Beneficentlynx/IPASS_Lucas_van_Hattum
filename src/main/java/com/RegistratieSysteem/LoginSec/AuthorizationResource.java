@@ -30,12 +30,9 @@ public class AuthorizationResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getUser(@Context SecurityContext sc) {
         Map<String, String> data = new HashMap<>();
-        System.out.println(sc);
-        System.out.println(sc.getUserPrincipal());
         if (sc.getUserPrincipal() != null) {
             if (sc.getUserPrincipal() instanceof User) {
                 User current = (User) sc.getUserPrincipal();
-                System.out.println(current.getName());
                 data.put("username", current.getName());
                 return Response.ok(data).build();
             }
@@ -50,8 +47,6 @@ public class AuthorizationResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getallusers(@Context SecurityContext sc) {
         Map<String, ArrayList<String>> data = new HashMap<>();
-        System.out.println(sc);
-        System.out.println(sc.getUserPrincipal());
         if (sc.getUserPrincipal() != null) {
             if (sc.getUserPrincipal() instanceof User) {
                 User current = (User) sc.getUserPrincipal();
@@ -62,7 +57,6 @@ public class AuthorizationResource {
                     for(User user : allUsers) {
                         allusernames.add(user.getName());
                     }
-                    System.out.println(current.getName());
                     data.put("allUserNames", allusernames);
                     return Response.ok(data).build();
                 }

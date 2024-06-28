@@ -40,3 +40,17 @@ li a:hover {
 section {
     width : 600px;
 }
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#errorMessage {
+    color: red;
+}
+
+.disabled-date {
+    background-color: #ddd;
+    color: #888;
+}

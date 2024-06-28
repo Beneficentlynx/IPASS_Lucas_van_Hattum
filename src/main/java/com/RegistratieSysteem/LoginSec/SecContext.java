@@ -23,7 +23,6 @@ public class SecContext
     @Override
     public boolean isUserInRole(String s) {
         if (user.getName() != null) {
-            System.out.printf("%s equals %s", s, user.getName());
             return s.equals(user.getName());
         }
         return false;

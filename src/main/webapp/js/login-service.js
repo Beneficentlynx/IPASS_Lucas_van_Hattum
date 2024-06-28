@@ -84,7 +84,6 @@ export default class LoginService {
         }
         return fetch(URL, fetchOptions)
             .then(response => {
-                console.log(response)
                 if (response.ok) {
                     return response.json();
                 } else throw `(${response.status}) Could not get all usernames`

@@ -1,4 +1,4 @@
-package com.RegistratieSysteem.model;
+package com.RegistratieSysteem.webservices.dto;
 
 public class RegistrationRequest {
     public String password;

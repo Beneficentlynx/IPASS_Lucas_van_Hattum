@@ -18,8 +18,67 @@
     <li id="logout"><a  href="login.html">Log uit</a></li>
 </ul>
 <br>
-<h1>zomerweek aanmaken</h1>
-</body>
-<!--<script type="application/javascript" src="js/functions.js"></script>-->
+<h1>Zomerweek aanmaken</h1>
+<p id="errorMessage"></p>
+<form id="registerZomerweek">
+    <div class="field">
+        <label>
+            <p class="subtitle">Zomerweek Naam</p>
+            <input id="ZomerweekNaam" type="text" class="input" placeholder="zomerweek naam" required>
+        </label>
+    </div>
+    <br>
+    <div class="field">
+        <label>
+            <p class="subtitle">Begin datum</p>
+            <input id="ZomerweekBegindatum" type="date" class="input" placeholder="" required>
+        </label>
+    </div>
+    <br>
+    <div class="field">
+        <label>
+            <p class="subtitle">Eind datum</p>
+            <input id="ZomerweekEinddatum" type="date" class="input" placeholder="" required>
+        </label>
+    </div>
+    <br>
+    <div class="field">
+        <label>
+            <p class="subtitle">naam van de HI</p>
+            <input id="naamHI" type="text" class="input" placeholder="Naam HI" required>
+        </label>
+    </div>
+   <br>
+
+    <table>
+        <tr>
+            <th>Instructeur niveau</th>
+            <th>Hoeveelheid</th>
+        </tr>
+        <tr>
+            <th>I2</th>
+            <th><input id="hoeveelheidI2" type="number" class="input" placeholder="0" min="0" max="5"></th>
+        </tr>
+        <tr>
+            <th>I3</th>
+            <th><input id="hoeveelheidI3" type="number" class="input" placeholder="0" min="0" max="5"></th>
+        </tr>
+        <tr>
+            <th>I4</th>
+            <th><input id="hoeveelheidI4" type="number" class="input" placeholder="0" min="0" max="5"></th>
+        </tr>
+        <tr>
+            <th>Opleiders</th>
+            <th><input id="hoeveelheidO" type="number" class="input" placeholder="0" min="0" max="5"></th>
+        </tr>
+    </table>
+    <br>
+    <div class="field">
+        <button type="createZomerweek" class="button">Submit</button>
+    </div>
+</form>
+<ul id="datelist"></ul>
+<script type="module" src="js/zomerweekAanmaken.js"></script>
 <script type="module" src="js/login.js"></script>
+</body>
 </html>

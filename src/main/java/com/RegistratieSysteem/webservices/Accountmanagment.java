@@ -1,12 +1,8 @@
 package com.RegistratieSysteem.webservices;
 
-import com.RegistratieSysteem.model.RegistrationRequest;
+import com.RegistratieSysteem.webservices.dto.RegistrationRequest;
 import com.RegistratieSysteem.model.User;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.annotation.security.RolesAllowed;
-import javax.json.Json;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -40,7 +36,6 @@ public class Accountmanagment {
                     }
 
                     User.addUserToAll(current);
-                    System.out.println(User.getAllUsers());
                     return Response.ok().build();
                 }
                 return Response.status(Response.Status.UNAUTHORIZED).build();

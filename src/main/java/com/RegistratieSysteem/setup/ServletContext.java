@@ -1,6 +1,7 @@
 package com.RegistratieSysteem.setup;
 
 import com.RegistratieSysteem.model.User;
+import com.RegistratieSysteem.model.ZomerWeek;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -15,16 +16,15 @@ public class ServletContext implements ServletContextListener, HttpSessionListen
 
     @Override
     public void contextInitialized(ServletContextEvent sce){
-        User.setAllUsers(User.readUser());
-//        User adminuser = new User("admin", "admin", "TEST");
-//        User.addUserToAll(adminuser);
-        System.out.println(User.getAllUsers());
+        User.readUser();
+        ZomerWeek.readZomerWeek();
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         try {
             User.writeUser(User.getAllUsers());
+            ZomerWeek.writeZomerWeek(ZomerWeek.getAllZomerweken());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
