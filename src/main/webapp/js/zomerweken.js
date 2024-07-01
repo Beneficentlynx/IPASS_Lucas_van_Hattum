@@ -1,7 +1,7 @@
 import LoginService from "./login-service.js";
+import Zomerwekenservice from "./zomerweken-service.js";
 
-import zomerwekenservice from "./zomerweken-service";
-let zomerweekservice = new zomerweekservice();
+let zomerweekservice = new Zomerwekenservice();
 let service = new LoginService();
 const SELECTZOMERWEEK = document.forms.getdePlekken;
 const INSCHRIJVEN = document.forms.schrijfIn;

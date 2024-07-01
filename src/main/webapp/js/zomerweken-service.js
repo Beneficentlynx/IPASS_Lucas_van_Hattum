@@ -1,4 +1,4 @@
-export default class zomerwekenservice {
+export default class Zomerwekenservice {
     getAllZomerweken() {
         const LOCAL_TOKEN = window.sessionStorage.getItem("myJWT");
         const URL = "http://localhost:8080/restservices/aanmelden/getAllZomerweken";
@@ -75,6 +75,4 @@ export default class zomerwekenservice {
                 throw new Error(message);
             });
     }
-
-
 }

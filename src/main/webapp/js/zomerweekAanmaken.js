@@ -1,5 +1,5 @@
 import LoginService from "./login-service.js";
-import zomerweekaanmakenService from "./zomerweekAanmaken-service";
+import zomerweekaanmakenService from "./zomerweekAanmaken-service.js";
 
 
 const REGISTREER_ZOMERWEEK = document.forms.registerZomerweek;
