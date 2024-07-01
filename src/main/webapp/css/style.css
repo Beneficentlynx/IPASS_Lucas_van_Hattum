@@ -6,10 +6,6 @@
     background-color: #333;
 }
 
-li {
-
-}
-
 li a {
     float: left;
     display: block;
@@ -50,7 +46,6 @@ table, th, td {
     color: red;
 }
 
-.disabled-date {
-    background-color: #ddd;
-    color: #888;
+select {
+    margin: 5px;
 }

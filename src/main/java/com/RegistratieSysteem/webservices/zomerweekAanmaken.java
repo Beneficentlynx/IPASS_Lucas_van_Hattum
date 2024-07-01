@@ -81,7 +81,6 @@ public class zomerweekAanmaken {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getAllUsedDates(@Context SecurityContext sc){
-        System.out.println("get test");
         Map<String, ArrayList<String>> data = new HashMap<>();
         if (sc.getUserPrincipal() != null) {
             if (sc.getUserPrincipal() instanceof User) {
@@ -93,7 +92,6 @@ public class zomerweekAanmaken {
                     }
 
                     data.put("allDates", allDates);
-                    System.out.println(data);
                     return Response.ok(data).build();
                 }
             }

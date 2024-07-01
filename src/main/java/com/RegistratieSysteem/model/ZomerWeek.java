@@ -40,6 +40,7 @@ public class ZomerWeek implements Principal, Serializable {
         alleZomerweken.add(current);
     }
 
+
     public LocalDate getBeginDatum(){
         return beginDatum;
     }
@@ -48,9 +49,21 @@ public class ZomerWeek implements Principal, Serializable {
         return eindDatum;
     }
 
+    public ArrayList<Plek> getPlekken(){
+        return plekken;
+    }
+
     @Override
     public String getName() {
         return zomerweekNaam;
+    }
+
+    public void addPlek(Plek plek){
+        plekken.add(plek);
+    }
+
+    public void verwijderPlek(Plek plek){
+        plekken.remove(plek);
     }
 
     @Override
